@@ -34,6 +34,7 @@ class UserImages(models.Model):
     owner = models.ForeignKey('auth.User')
     user=models.ForeignKey(Profile)
     # highlighted = models.TextField(default=None,blank=True,null=True)
+    tagged=models.ManyToManyField(Profile)
     image=models.ImageField()
     pub_date=models.DateTimeField(default=now)
 

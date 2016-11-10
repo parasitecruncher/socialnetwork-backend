@@ -70,9 +70,11 @@ class Search(APIView):
         return Response(serializer.data)
         return JSONResponse(json.dumps(list(Profile.objects.all().filter(Q(nick_name__startswith=str(st))).values('id','nick_name'))))
 class UserFeed(APIView):
+    def post(self, request,pk, format=None):
+        return Response(json.dumps(list(Profile.objects.all().filter(pk=pk).all().values('userimages__image','userimages__id'))))
 
     def get(self, request,pk, format=None):
-        return JSONResponse(json.dumps(list(Profile.objects.all().filter(pk=pk).all().values('userimages__image'))))
+        return Response(json.dumps(list(Profile.objects.all().filter(pk=pk).all().values('userimages__image','userimages__id'))))
 
 class ImagesDetail(APIView):
     parser_classes = (FileUploadParser,)
