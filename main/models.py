@@ -34,12 +34,16 @@ class UserImages(models.Model):
     owner = models.ForeignKey('auth.User')
     user=models.ForeignKey(Profile)
     # highlighted = models.TextField(default=None,blank=True,null=True)
-    tagged=models.ManyToManyField(Profile)
+    tagged=models.ManyToManyField(Profile,related_name="tags")
     image=models.ImageField()
     pub_date=models.DateTimeField(default=now)
+    def __str__(self):
+        return self.user.nick_name
 
 class Like(models.Model):
     #nick_name=models.CharField(max_length=10)
     post = models.ForeignKey(UserImages)
     user = models.ForeignKey(Profile, related_name='liker')
     date_created = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.user.nick_name+" likes "+self.post.user.nick_name+"'image"

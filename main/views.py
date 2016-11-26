@@ -33,7 +33,6 @@ class Profile_List(APIView):
         serializer=ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
     def post(self, request, format=None):
-        req=request.data
         image = req['display_image']
         req['user']=self.request.user.id
         #self.request.user.

@@ -31,7 +31,7 @@ class ImageSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(max_length=None,use_url=True)
     class Meta:
         model=UserImages
-        fields=('id','owner','image','user' )
+        fields=('id','owner','image','user','tagged')
     def gett_image_url(self,obj):
         return obj.image.url
 

@@ -7,9 +7,7 @@ from rest_framework import routers
 
 
 urlpatterns = [
-    url(r'^im/$', views.ImagesViewSet.as_view({'get': 'retrieve'})),
-    url(r'^profiles/$', views.Profile_List.as_view()),
-    url(r'^profiles/(?P<pk>[0-9]+)/$', views.Profile_Detail.as_view()),
+
     url(r'^users/$', views.User_List.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', views.User_Detail.as_view()),
     url(r'^clog/',views.Login.as_view()),
