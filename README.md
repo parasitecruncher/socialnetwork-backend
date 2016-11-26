@@ -1,5 +1,5 @@
 # socialnetwork-backend
-This is the backend Django code that I built for my college project. What I did is create an API built on sjango leveraging 
+This is the backend Django code that I built for my college project. What I did is create an API built on Django leveraging
 the features of django rest framework.
 
 The web client is built on angularjs, it's available at
